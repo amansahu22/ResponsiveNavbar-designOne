@@ -1,27 +1,33 @@
 import React from 'react';
-import 'boxicons';
 import styles from './Navbar.module.css';
 
-function Navbar() {
+function Navbar(props) {
+
+    const activeClass = props.activeClass;
+
+    const menuButtonHandler = (event) => {
+        props.liftData(event);
+    }
+
     return (
-        <div className={styles.navbar}>
+        <div className={`${styles.navbar} ${activeClass && styles.active}`}>
             <div className={styles.logo_content}>
                 <div className={styles.logo}>
                     <i className='bx bxl-c-plus-plus'></i>
                     <div className={styles.logo_name}>CodingLab</div>
                 </div>
                 <div className={styles['collapse-navbar']}>
-                    <i className='bx bx-menu' id='btn' ></i>
+                    <i className='bx bx-menu' id='btn' onClick={menuButtonHandler} ></i>
                 </div>
             </div>
             <ul className={styles.nav_list}>
 
-                <li>
+                <li className={styles.alagse}>
                     <div className={styles.search}><i className='bx bx-search' ></i></div>
                     <input type='text' placeholder='Search' ></input>
-                    {/* <span className={styles.tooltrip}>
-                            Dashboard
-                        </span> */}
+                    <span className={styles.tooltrip}>
+                        Search
+                    </span>
                 </li>
                 <li>
                     <a href='/'>
@@ -29,9 +35,9 @@ function Navbar() {
                         <span className={styles.links_name}>
                             Dashboard
                         </span>
-                        {/* <span className={styles.tooltrip}>
+                        <span className={styles.tooltrip}>
                             Dashboard
-                        </span> */}
+                        </span>
                     </a>
                 </li>
                 <li>
@@ -40,9 +46,9 @@ function Navbar() {
                         <span className={styles.links_name}>
                             User
                         </span>
-                        {/* <span className={styles.tooltrip}>
+                        <span className={styles.tooltrip}>
                             User
-                        </span> */}
+                        </span>
                     </a>
                 </li>
                 <li>
@@ -51,9 +57,9 @@ function Navbar() {
                         <span className={styles.links_name}>
                             Messages
                         </span>
-                        {/* <span className={styles.tooltrip}>
+                        <span className={styles.tooltrip}>
                             Messages
-                        </span> */}
+                        </span>
                     </a>
                 </li>
                 <li>
@@ -62,9 +68,9 @@ function Navbar() {
                         <span className={styles.links_name}>
                             Analytics
                         </span>
-                        {/* <span className={styles.tooltrip}>
+                        <span className={styles.tooltrip}>
                             Analytics
-                        </span> */}
+                        </span>
                     </a>
                 </li>
                 <li>
@@ -73,9 +79,9 @@ function Navbar() {
                         <span className={styles.links_name}>
                             File Manager
                         </span>
-                        {/* <span className={styles.tooltrip}>
+                        <span className={styles.tooltrip}>
                             File Manager
-                        </span> */}
+                        </span>
                     </a>
                 </li>
                 <li>
@@ -84,9 +90,9 @@ function Navbar() {
                         <span className={styles.links_name}>
                             Order
                         </span>
-                        {/* <span className={styles.tooltrip}>
+                        <span className={styles.tooltrip}>
                             Order
-                        </span> */}
+                        </span>
                     </a>
                 </li>
                 <li>
@@ -95,9 +101,9 @@ function Navbar() {
                         <span className={styles.links_name}>
                             Saved
                         </span>
-                        {/* <span className={styles.tooltrip}>
+                        <span className={styles.tooltrip}>
                             Saved
-                        </span> */}
+                        </span>
                     </a>
                 </li>
                 <li>
@@ -106,9 +112,9 @@ function Navbar() {
                         <span className={styles.links_name}>
                             Settings
                         </span>
-                        {/* <span className={styles.tooltrip}>
+                        <span className={styles.tooltrip}>
                             Settings
-                        </span> */}
+                        </span>
                     </a>
                 </li>
             </ul>
